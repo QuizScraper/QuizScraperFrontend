@@ -1,4 +1,8 @@
-language: generic
+language: node_js
+
+install:
+  webpack ./src/App.js bundle.js
+
 deploy:
   provider: s3
   access_key_id: AKIAIT7HTHVCDICFOXFQ
