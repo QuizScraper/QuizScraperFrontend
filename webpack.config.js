@@ -2,7 +2,7 @@ module.exports = {
   entry: './src/App.js',
   output: {
     path: __dirname,
-    filename: 'app.js'
+    filename: 'quizscraper.js'
   },
   module: {
     loaders: [{
@@ -10,7 +10,8 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['env','es2015','react']
+        presets: ['env','es2015','react'],
+        plugins: ['babel-plugin-react-html-attrs']
       }
     }]
   }
