@@ -3,7 +3,10 @@ node_js:
    "node"
 
 install:
-  npm i && webpack ./src/App.js quizscraper.js
+  npm i
+
+before_deploy:
+  webpack ./src/App.js quizscraper.js 
 
 deploy:
   provider: s3
