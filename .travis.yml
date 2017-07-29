@@ -1,0 +1,10 @@
+language: python
+deploy:
+  provider: s3
+  access_key_id: AKIAIT7HTHVCDICFOXFQ
+  secret_access_key:
+    secure: WvqML4D8h3KWZUvewnAk8H24n7+oS3IzQ9IhIbNpiJybVdd/KVg2JDWdepE8m2YejduIa+PXacX5mX/dM6yPmY8UHMpnjSrADKEK5GDzm6paAZnU57LhWU+bulaf1R9YP5un5lmMRfOvYrassFAdgNJQ7aEwh9cG4FRGal6BmejwaS9/yWBypunZMWYuadzuDUhA3Sdn/oEI2wxezLQdLNI8AA9xw+MNZ+BW1zxgHzD72mvz7Hp+bTSsAH3GUUvnhz4qRLU6u34PPBujWhmZ4fznpwf5/e4w5+jj7+eZbQp5BQmpmoNP/CatA7QakmgR/NNC4kmSNI/f4/h7yVvPnzLlXVF4vaJYFCFoptzkjXzVIHHYuanT8sjDWmfJKYzUPPGCVP5gc0qtW7zfyIc06CA13hxXBURMiRDJzGLlRSlmrIld0kdYmckzDba77RfAqv66x0Z6d812Vdnuq4u/5Z02FeqyTFodMU7bjNo/mCUlVWKeqIIoRA3Qx+xIbCIxHLwCN8fp4Sl0PbTczpaEnqPyo1QZTTNrJhJXIwdWVVW+PF6v0Zpl51s141uCwwKi4R8dMmdBJwMXgr7bG6CLQRTiMmw/4JCj0ekoc9i8GIBvCQepm3fCyow4S7J5pKJgSmL0ji23/dyWTPIQm/IRkAD6DEQWWUxg3T039WtBftM=
+  bucket: quizscraper.tech
+  acl: public_read
+  on:
+    repo: QuizScraper/QuizScraperFrontend
