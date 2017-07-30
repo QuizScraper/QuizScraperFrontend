@@ -2,11 +2,8 @@ language: node_js
 node_js:
    "node"
 
-install:
-  npm i
-
 before_deploy:
-  webpack 
+  webpack
 
 deploy:
   provider: s3
