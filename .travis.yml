@@ -6,7 +6,7 @@ install:
   npm i
 
 before_deploy:
-  webpack ./src/App.js quizscraper.js 
+  webpack 
 
 deploy:
   provider: s3
