@@ -8,7 +8,7 @@ class NavbarTop extends Component{
       <Navbar inverse collapseOnSelect fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">QuizScraper</a>
+            <a href="index.html">QuizScraper</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

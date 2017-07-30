@@ -21,6 +21,9 @@ class App extends Component {
             <div class="list-group" id="search-suggest"></div>
           </div>
         </div>
+
+        <div class="container" id="topic-container"> </div>
+        
       </div>
     )
   }
