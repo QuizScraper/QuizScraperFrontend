@@ -11,6 +11,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./src/css/quizscraper.css" />
+
     <!--[if lt IE 9]>
       <script>
       (function(){
@@ -35,6 +38,46 @@
 
     <!-- Built by Webpack -->
     <script src="quizscraper.js"></script>
+
+    <script>
+      function parseSearchJSON(json){
+        //console.log(json);
+        var resultsHTML = ' ';
+        var suggestion_arr = json[1];
+        for(var i = 0; i < json.length; i++) {
+            var suggestion_val = suggestion_arr[i];
+            var suggestion_url = json[3][i];
+            resultsHTML = resultsHTML + '<a href="' + suggestion_url + '"><button type="button" class="list-group-item">' + suggestion_val + '</button></a> ';
+        }
+        return resultsHTML;
+      }
+
+      function displaySuggestions(json){
+        var results = parseSearchJSON(json);
+        if((json[1][0] !== 'undefined') && (results.indexOf('undefined') == -1)){
+          document.getElementById('search-suggest').innerHTML =  results;
+        }else{
+          document.getElementById('search-suggest').innerHTML =  '';
+        }
+      }
+
+      var autofillScript = '';
+
+      document.getElementById('searchfield').onkeyup = function(){
+        var entry = document.getElementById('searchfield').value;
+
+        if((entry != '') && (entry != ' ') && (entry != null)){
+          if(autofillScript != ''){
+            document.body.removeChild(autofillScript);
+          }
+          autofillScript = document.createElement('script');
+          autofillScript.src = 'http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=displaySuggestions&search='+ entry;
+          document.body.appendChild(autofillScript);
+        }else{
+          document.getElementById('search-suggest').innerHTML = '';
+        }
+      };
+    </script>
 
   </body>
 

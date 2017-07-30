@@ -1,0 +1,24 @@
+button:focus {
+  outline: none;
+}
+
+#home-jumbotron{
+    margin-top: 50px;
+    #subject-select-home{
+        width: 500px;
+        max-width: 80%;
+    }
+
+    #search-suggest{
+        margin-left: 100px;
+        width: 400px;
+        max-width: 80%;
+
+        .list-group-item{
+            border-radius: 0;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    }
+
+}
