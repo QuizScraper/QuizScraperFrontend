@@ -2,12 +2,8 @@ language: node_js
 node_js:
    "node"
 
-install:
-<<<<<<< HEAD
-  npm i && webpack
-=======
+script:
   webpack
->>>>>>> 39e946d75dc9a37c900388ce86256dfce2225601
 
 deploy:
   provider: s3
@@ -18,11 +14,7 @@ deploy:
   acl: public_read
   on:
     repo: QuizScraper/QuizScraperFrontend
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 39e946d75dc9a37c900388ce86256dfce2225601
 after_deploy:
   git add .
   git commit -m "Build succeeded"
