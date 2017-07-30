@@ -71,7 +71,7 @@
             document.body.removeChild(autofillScript);
           }
           autofillScript = document.createElement('script');
-          autofillScript.src = 'http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=displaySuggestions&search='+ entry;
+          autofillScript.src = 'https://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=displaySuggestions&search='+ entry;
           document.body.appendChild(autofillScript);
         }else{
           document.getElementById('search-suggest').innerHTML = '';
