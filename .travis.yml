@@ -3,10 +3,7 @@ node_js:
    "node"
 
 install:
-  webpack
-
-script:
-  git add quizscraper.js
+  npm i && webpack
 
 deploy:
   provider: s3
@@ -17,3 +14,7 @@ deploy:
   acl: public_read
   on:
     repo: QuizScraper/QuizScraperFrontend
+
+after_deploy:
+  git add .
+  git commit -m "Build succeeded"
