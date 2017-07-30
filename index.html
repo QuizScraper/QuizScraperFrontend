@@ -40,30 +40,38 @@
     <script src="quizscraper.js"></script>
 
     <script>
+    function displayQuestions(json, topic){
+      var questionsHTML = '<h2>' + topic + ':</h2> <br /> ';
+      var results = JSON.stringify(json);
+      for(var i = 0; i < results.length; i++){
+        questionsHTML = questionsHTML + '<li>' + results[i].question + ' | answer: ' + results[i].answer + '</li> ';
+      }
+      document.getElementById('topic-container').innerHTML =  questionsHTML;
+    }
+
       function populateQuestions(topic){
         document.getElementById('search-suggest').innerHTML =  '';
         //console.log(topic);
-        var questions = [
-          {
-            'question': 'What is your favorite song?',
-            'answer':   'Hey Jude.'
-          },
-          {
-            'question': 'What year was Steven born?',
-            'answer':   '1995'
-          },
-          {
-            'question': 'Are avocados tasty?',
-            'answer':   'Yes, very!'
+
+        var questionScript = '';
+        if((topic != '') && (topic != ' ') && (topic != null)){
+          if(questionScript != ''){
+            document.body.removeChild(questionScript);
           }
-        ];
-
-        var questionsHTML = '<h2>' + topic + ':</h2> <br /> ';
-
-        for(var i = 0; i < questions.length; i++){
-          questionsHTML = questionsHTML + '<li>' + questions[i].question + ' | answer: ' + questions[i].answer + '</li> ';
+          questionScript = document.createElement('script');
+          questionScript.src = 'http://localhost:5000/p/'+ topic;
+          document.body.appendChild(questionScript);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},1000);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},10000);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},40000);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},60000);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},100000);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},120000);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},150000);
+          setTimeout(function(){displayQuestions(questionScript, topic); console.log(questionScript);},200000);
+        }else{
+          document.getElementById('topic-container').innerHTML =  '';
         }
-        document.getElementById('topic-container').innerHTML =  questionsHTML;
       }
 
       function parseSearchJSON(json){
