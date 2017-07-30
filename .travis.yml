@@ -5,7 +5,7 @@ node_js:
 install:
   webpack
 
-before_deploy:
+script:
   git add quizscraper.js
 
 deploy:
