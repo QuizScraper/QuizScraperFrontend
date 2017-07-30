@@ -5,6 +5,9 @@ node_js:
 script:
   webpack
 
+before_deploy:
+   rm -rf node_modules/
+
 deploy:
   skip_cleanup: true
   provider: s3
